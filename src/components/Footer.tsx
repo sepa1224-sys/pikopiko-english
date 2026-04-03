@@ -1,44 +1,38 @@
+import { GroundDivider, Coin } from "./PixelArt";
+
 export default function Footer() {
   return (
-    <footer className="bg-dark-navy py-10 px-4 text-white" id="contact">
-      <div className="max-w-4xl mx-auto text-center">
-        {/* Logo */}
-        <div className="font-dot mb-6">
-          <p className="text-accent text-3xl tracking-[0.3em]">PIKO PIKO</p>
-          <p className="text-white text-xl tracking-[0.3em]">ENGLISH</p>
-        </div>
+    <>
+      <GroundDivider />
+      <footer className="bg-dark-navy py-10 px-4 text-white" id="contact">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Logo */}
+          <div className="font-dot mb-6">
+            <p className="text-accent text-2xl md:text-3xl tracking-[0.3em]">PIKO PIKO</p>
+            <p className="text-white text-lg md:text-xl tracking-[0.3em]">ENGLISH</p>
+          </div>
 
-        {/* Contact CTA */}
-        <div className="mb-8">
-          <a
-            href="#contact"
-            className="pixel-btn inline-block bg-primary text-white font-dot text-lg px-8 py-4 rounded-sm hover:bg-red-600 transition-colors"
-          >
-            お問い合わせはこちら
-          </a>
-        </div>
+          {/* CTA */}
+          <div className="mb-6">
+            <a href="#contact" className="pixel-btn inline-block bg-primary text-white font-dot text-base md:text-lg px-6 md:px-8 py-3 md:py-4 rounded-sm">
+              お問い合わせはこちら
+            </a>
+          </div>
 
-        {/* Ground decoration */}
-        <div className="flex justify-center gap-1 mb-6">
-          {Array.from({ length: 10 }).map((_, i) => (
-            <div
-              key={i}
-              className="w-4 h-4"
-              style={{
-                background: i % 2 === 0 ? "#C4A265" : "#A0824A",
-                imageRendering: "pixelated",
-              }}
-            />
-          ))}
-        </div>
+          {/* Coins */}
+          <div className="flex justify-center gap-3 mb-5">
+            <Coin size={20} />
+            <Coin size={20} />
+            <Coin size={20} />
+          </div>
 
-        {/* Divider */}
-        <div className="border-t border-gray-700 pt-6">
-          <p className="font-body text-sm text-gray-400">
-            &copy; 2024 ピコピコイングリッシュ All Rights Reserved.
-          </p>
+          <div className="border-t border-gray-700 pt-5">
+            <p className="font-body text-xs md:text-sm text-gray-500">
+              &copy; 2024 ピコピコイングリッシュ All Rights Reserved.
+            </p>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 }

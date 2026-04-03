@@ -1,72 +1,78 @@
 import FadeInSection from "./FadeInSection";
-import { SectionDivider } from "./PixelArt";
+import { SectionDivider, GroundDivider, PixelStar } from "./PixelArt";
+
+function PixelCircleFrame({ color, children }: { color: string; children: React.ReactNode }) {
+  return (
+    <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-3 md:mb-4">
+      {/* Pixel-style border ring */}
+      <div
+        className="absolute inset-0 rounded-full"
+        style={{
+          border: `4px solid ${color}`,
+          boxShadow: `inset -3px -3px 0 rgba(0,0,0,0.2), inset 3px 3px 0 rgba(255,255,255,0.2), 4px 4px 0 rgba(0,0,0,0.2)`,
+        }}
+      />
+      <div className="absolute inset-1 rounded-full overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+        {children}
+      </div>
+    </div>
+  );
+}
 
 export default function Members() {
   return (
-    <section className="bg-white py-12 md:py-14 px-4" id="members">
-      <FadeInSection>
-        <div className="max-w-4xl mx-auto">
-          {/* Heading */}
-          <div className="text-center mb-8 md:mb-10">
-            <SectionDivider />
-            <h2 className="font-dot text-2xl md:text-4xl text-primary">
-              メンバー紹介
-            </h2>
-            <SectionDivider />
-          </div>
+    <>
+      <GroundDivider />
+      <section className="bg-dark-navy py-12 md:py-14 px-4 relative" id="members">
+        <div className="absolute top-6 left-8"><PixelStar /></div>
+        <div className="absolute top-10 right-10" style={{ animationDelay: "0.8s" }}><PixelStar /></div>
 
-          {/* Member cards */}
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-8 max-w-3xl mx-auto">
-            {/* Member 1 - 坂本達輝 */}
-            <div className="text-center">
-              <div className="w-28 h-28 md:w-40 md:h-40 mx-auto mb-3 md:mb-4 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full border-3 md:border-4 border-secondary overflow-hidden flex items-center justify-center shadow-lg">
-                <svg
-                  className="w-16 h-16 md:w-24 md:h-24 text-blue-300"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                </svg>
-              </div>
-              <div className="pixel-border-light bg-gradient-to-b from-blue-50 to-white p-3 md:p-5 rounded-sm">
-                <h3 className="font-dot text-base md:text-xl text-gray-800 mb-1">
-                  坂本達輝
-                </h3>
-                <div className="inline-block bg-secondary text-white font-dot text-[0.6rem] md:text-xs px-2 md:px-3 py-0.5 md:py-1 rounded-full mb-2 md:mb-3">
+        <FadeInSection>
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8 md:mb-10">
+              <SectionDivider />
+              <h2 className="font-dot text-2xl md:text-4xl text-accent">
+                メンバー紹介
+              </h2>
+              <SectionDivider />
+            </div>
+
+            <div className="grid grid-cols-2 gap-4 md:gap-8 max-w-2xl mx-auto">
+              {/* Member 1 */}
+              <div className="text-center">
+                <PixelCircleFrame color="#5B8DEE">
+                  <svg className="w-16 h-16 md:w-20 md:h-20 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                  </svg>
+                </PixelCircleFrame>
+                <h3 className="font-dot text-base md:text-xl text-white mb-1">坂本達輝</h3>
+                <div className="inline-block bg-secondary text-white font-dot text-[0.55rem] md:text-xs px-2 md:px-3 py-0.5 md:py-1 rounded-sm mb-2">
                   サポートメンバー
                 </div>
-                <p className="font-body text-xs md:text-sm text-gray-600 leading-relaxed hidden md:block">
+                <p className="font-body text-[0.65rem] md:text-xs text-gray-400 leading-relaxed hidden md:block">
                   サービスの運営・サポートを担当しています。
                 </p>
               </div>
-            </div>
 
-            {/* Member 2 - 伊度悠希 */}
-            <div className="text-center">
-              <div className="w-28 h-28 md:w-40 md:h-40 mx-auto mb-3 md:mb-4 bg-gradient-to-br from-red-100 to-red-200 rounded-full border-3 md:border-4 border-primary overflow-hidden flex items-center justify-center shadow-lg">
-                <svg
-                  className="w-16 h-16 md:w-24 md:h-24 text-red-300"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                </svg>
-              </div>
-              <div className="pixel-border-light bg-gradient-to-b from-red-50 to-white p-3 md:p-5 rounded-sm">
-                <h3 className="font-dot text-base md:text-xl text-gray-800 mb-1">
-                  伊度悠希
-                </h3>
-                <div className="inline-block bg-primary text-white font-dot text-[0.6rem] md:text-xs px-2 md:px-3 py-0.5 md:py-1 rounded-full mb-2 md:mb-3">
+              {/* Member 2 */}
+              <div className="text-center">
+                <PixelCircleFrame color="#E63946">
+                  <svg className="w-16 h-16 md:w-20 md:h-20 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                  </svg>
+                </PixelCircleFrame>
+                <h3 className="font-dot text-base md:text-xl text-white mb-1">伊度悠希</h3>
+                <div className="inline-block bg-primary text-white font-dot text-[0.55rem] md:text-xs px-2 md:px-3 py-0.5 md:py-1 rounded-sm mb-2">
                   サポートメンバー（講師）
                 </div>
-                <p className="font-body text-xs md:text-sm text-gray-600 leading-relaxed hidden md:block">
+                <p className="font-body text-[0.65rem] md:text-xs text-gray-400 leading-relaxed hidden md:block">
                   英会話講師として、レッスンを担当しています。
                 </p>
               </div>
             </div>
           </div>
-        </div>
-      </FadeInSection>
-    </section>
+        </FadeInSection>
+      </section>
+    </>
   );
 }

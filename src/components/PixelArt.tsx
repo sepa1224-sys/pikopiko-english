@@ -1,122 +1,200 @@
+/* ===== Pixel Cloud — Mario-style ===== */
 export function PixelCloud({ className = "" }: { className?: string }) {
   return (
-    <svg
-      className={className}
-      width="80"
-      height="40"
-      viewBox="0 0 80 40"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <rect x="20" y="0" width="40" height="10" fill="white" />
-      <rect x="10" y="10" width="60" height="10" fill="white" />
-      <rect x="0" y="20" width="80" height="10" fill="white" />
-      <rect x="10" y="30" width="60" height="10" fill="white" />
+    <svg className={className} width="96" height="48" viewBox="0 0 12 6" xmlns="http://www.w3.org/2000/svg" style={{ imageRendering: "pixelated" }}>
+      <rect x="3" y="0" width="6" height="1" fill="#fff" />
+      <rect x="1" y="1" width="10" height="1" fill="#fff" />
+      <rect x="0" y="2" width="12" height="1" fill="#fff" />
+      <rect x="0" y="3" width="12" height="1" fill="#f4f4f4" />
+      <rect x="1" y="4" width="10" height="1" fill="#e8e8e8" />
+      <rect x="3" y="5" width="6" height="1" fill="#e0e0e0" />
     </svg>
   );
 }
 
-export function PixelMountain({ className = "" }: { className?: string }) {
+/* ===== Pixel Mountain — layered green ===== */
+export function PixelMountain({ variant = "large" }: { variant?: "large" | "small" }) {
+  if (variant === "small") {
+    return (
+      <svg width="120" height="80" viewBox="0 0 15 10" xmlns="http://www.w3.org/2000/svg" style={{ imageRendering: "pixelated" }}>
+        <rect x="6" y="0" width="3" height="2" fill="#5A9E2F" />
+        <rect x="4" y="2" width="7" height="2" fill="#4A8C22" />
+        <rect x="2" y="4" width="11" height="2" fill="#3D7A1A" />
+        <rect x="0" y="6" width="15" height="2" fill="#2E6B10" />
+        <rect x="0" y="8" width="15" height="2" fill="#246008" />
+        {/* snow */}
+        <rect x="6" y="0" width="3" height="1" fill="#fff" />
+      </svg>
+    );
+  }
   return (
-    <svg
-      className={className}
-      width="200"
-      height="120"
-      viewBox="0 0 200 120"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <rect x="90" y="0" width="20" height="20" fill="#6B8E6B" />
-      <rect x="70" y="20" width="60" height="20" fill="#6B8E6B" />
-      <rect x="50" y="40" width="100" height="20" fill="#5A7D5A" />
-      <rect x="30" y="60" width="140" height="20" fill="#4A6C4A" />
-      <rect x="10" y="80" width="180" height="20" fill="#3A5B3A" />
-      <rect x="0" y="100" width="200" height="20" fill="#2A4A2A" />
-      {/* Snow cap */}
-      <rect x="90" y="0" width="20" height="10" fill="white" />
-      <rect x="80" y="10" width="40" height="10" fill="#E8E8E8" />
+    <svg width="240" height="160" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" style={{ imageRendering: "pixelated" }}>
+      <rect x="13" y="0" width="4" height="2" fill="#5A9E2F" />
+      <rect x="10" y="2" width="10" height="2" fill="#5A9E2F" />
+      <rect x="7" y="4" width="16" height="2" fill="#4A8C22" />
+      <rect x="4" y="6" width="22" height="2" fill="#4A8C22" />
+      <rect x="2" y="8" width="26" height="2" fill="#3D7A1A" />
+      <rect x="0" y="10" width="30" height="2" fill="#3D7A1A" />
+      <rect x="0" y="12" width="30" height="2" fill="#2E6B10" />
+      <rect x="0" y="14" width="30" height="2" fill="#246008" />
+      <rect x="0" y="16" width="30" height="4" fill="#1A5200" />
+      {/* snow */}
+      <rect x="13" y="0" width="4" height="1" fill="#fff" />
+      <rect x="11" y="1" width="8" height="1" fill="#E8F0E8" />
     </svg>
   );
 }
 
-export function PixelBlock({ className = "" }: { className?: string }) {
+/* ===== Question Block — bouncing ===== */
+export function QuestionBlock({ size = 40 }: { size?: number }) {
   return (
-    <div
-      className={`w-10 h-10 bg-yellow-500 border-2 border-yellow-700 flex items-center justify-center ${className}`}
-      style={{ imageRendering: "pixelated" }}
-    >
-      <span className="text-yellow-800 font-bold text-lg font-dot">?</span>
+    <div className="block-bounce inline-block" style={{ width: size, height: size }}>
+      <svg width={size} height={size} viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style={{ imageRendering: "pixelated" }}>
+        {/* border */}
+        <rect width="16" height="16" fill="#222" />
+        <rect x="1" y="1" width="14" height="14" fill="#E09C20" />
+        {/* highlight */}
+        <rect x="1" y="1" width="14" height="1" fill="#F0C848" />
+        <rect x="1" y="1" width="1" height="14" fill="#F0C848" />
+        {/* shadow */}
+        <rect x="1" y="14" width="14" height="1" fill="#A06800" />
+        <rect x="14" y="1" width="1" height="14" fill="#A06800" />
+        {/* ? mark */}
+        <rect x="5" y="3" width="6" height="2" fill="#fff" />
+        <rect x="9" y="5" width="2" height="2" fill="#fff" />
+        <rect x="6" y="7" width="4" height="2" fill="#fff" />
+        <rect x="6" y="7" width="2" height="2" fill="#fff" />
+        <rect x="6" y="11" width="2" height="2" fill="#fff" />
+      </svg>
     </div>
   );
 }
 
-export function QuestionBlock() {
-  return (
-    <div className="block-bounce inline-block">
-      <div
-        className="w-12 h-12 bg-accent border-3 border-yellow-700 flex items-center justify-center rounded-sm"
-        style={{
-          boxShadow:
-            "inset -3px -3px 0 rgba(0,0,0,0.3), inset 3px 3px 0 rgba(255,255,255,0.3)",
-        }}
-      >
-        <span className="text-yellow-800 font-bold text-xl font-dot">?</span>
-      </div>
-    </div>
-  );
-}
-
-export function Coin({ className = "" }: { className?: string }) {
+/* ===== Coin — spinning ===== */
+export function Coin({ className = "", size = 28 }: { className?: string; size?: number }) {
   return (
     <div className={`coin-anim inline-block ${className}`}>
-      <div className="w-8 h-8 bg-accent rounded-full border-2 border-yellow-600 flex items-center justify-center">
-        <span className="text-yellow-800 font-bold text-xs">$</span>
+      <svg width={size} height={size} viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" style={{ imageRendering: "pixelated" }}>
+        <rect x="3" y="0" width="6" height="1" fill="#DAA520" />
+        <rect x="1" y="1" width="10" height="1" fill="#FFD700" />
+        <rect x="0" y="2" width="12" height="8" fill="#FFD700" />
+        <rect x="1" y="10" width="10" height="1" fill="#DAA520" />
+        <rect x="3" y="11" width="6" height="1" fill="#B8860B" />
+        {/* $ */}
+        <rect x="5" y="3" width="2" height="6" fill="#B8860B" />
+        <rect x="4" y="4" width="4" height="1" fill="#B8860B" />
+        <rect x="4" y="7" width="4" height="1" fill="#B8860B" />
+      </svg>
+    </div>
+  );
+}
+
+/* ===== Pixel Star ===== */
+export function PixelStar({ className = "" }: { className?: string }) {
+  return (
+    <div className={`sparkle inline-block ${className}`}>
+      <svg width="16" height="16" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg" style={{ imageRendering: "pixelated" }}>
+        <rect x="3" y="0" width="2" height="2" fill="#FFD700" />
+        <rect x="0" y="3" width="8" height="2" fill="#FFD700" />
+        <rect x="2" y="2" width="4" height="4" fill="#FFD700" />
+        <rect x="1" y="5" width="2" height="1" fill="#FFD700" />
+        <rect x="5" y="5" width="2" height="1" fill="#FFD700" />
+        <rect x="0" y="6" width="2" height="1" fill="#FFD700" />
+        <rect x="6" y="6" width="2" height="1" fill="#FFD700" />
+      </svg>
+    </div>
+  );
+}
+
+/* ===== Pipe — Mario-style green pipe ===== */
+export function Pipe({ className = "" }: { className?: string }) {
+  return (
+    <svg className={className} width="64" height="80" viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg" style={{ imageRendering: "pixelated" }}>
+      {/* lip */}
+      <rect x="0" y="0" width="16" height="4" fill="#30A030" />
+      <rect x="0" y="0" width="16" height="1" fill="#50D050" />
+      <rect x="0" y="0" width="1" height="4" fill="#50D050" />
+      <rect x="15" y="0" width="1" height="4" fill="#1A7A1A" />
+      <rect x="0" y="3" width="16" height="1" fill="#1A7A1A" />
+      {/* body */}
+      <rect x="2" y="4" width="12" height="16" fill="#30A030" />
+      <rect x="2" y="4" width="1" height="16" fill="#50D050" />
+      <rect x="13" y="4" width="1" height="16" fill="#1A7A1A" />
+    </svg>
+  );
+}
+
+/* ===== Ground — grass on top + brick pattern ===== */
+export function GroundRow() {
+  return (
+    <div className="w-full">
+      {/* grass strip */}
+      <div className="h-2 md:h-3 w-full" style={{ background: "#5A9E2F", imageRendering: "pixelated" }} />
+      {/* brick row */}
+      <div className="flex w-full overflow-hidden" style={{ imageRendering: "pixelated" }}>
+        {Array.from({ length: 50 }).map((_, i) => (
+          <div
+            key={i}
+            className="w-8 h-8 md:w-10 md:h-10 flex-shrink-0 border-r border-b"
+            style={{
+              background: i % 2 === 0
+                ? "linear-gradient(180deg, #C84C09 0%, #A83C06 100%)"
+                : "linear-gradient(180deg, #B04408 0%, #903206 100%)",
+              borderColor: "#7A2800",
+            }}
+          />
+        ))}
+      </div>
+      <div className="flex w-full overflow-hidden" style={{ imageRendering: "pixelated" }}>
+        {Array.from({ length: 50 }).map((_, i) => (
+          <div
+            key={i}
+            className="w-8 h-8 md:w-10 md:h-10 flex-shrink-0 border-r border-b"
+            style={{
+              background: i % 2 === 1
+                ? "linear-gradient(180deg, #C84C09 0%, #A83C06 100%)"
+                : "linear-gradient(180deg, #B04408 0%, #903206 100%)",
+              borderColor: "#7A2800",
+            }}
+          />
+        ))}
       </div>
     </div>
   );
 }
 
-export function GroundBlocks() {
+/* ===== Ground Divider between sections ===== */
+export function GroundDivider() {
   return (
-    <div className="flex w-full">
-      {Array.from({ length: 40 }).map((_, i) => (
-        <div
-          key={i}
-          className="w-[40px] h-[40px] flex-shrink-0"
-          style={{
-            background:
-              i % 2 === 0
-                ? "linear-gradient(135deg, #C4A265 25%, #A0824A 25%, #A0824A 50%, #C4A265 50%, #C4A265 75%, #A0824A 75%)"
-                : "linear-gradient(135deg, #A0824A 25%, #8B6914 25%, #8B6914 50%, #A0824A 50%, #A0824A 75%, #8B6914 75%)",
-            backgroundSize: "20px 20px",
-            imageRendering: "pixelated",
-          }}
-        />
-      ))}
+    <div className="w-full overflow-hidden" style={{ imageRendering: "pixelated" }}>
+      <div className="h-2" style={{ background: "#5A9E2F" }} />
+      <div className="flex w-full">
+        {Array.from({ length: 50 }).map((_, i) => (
+          <div
+            key={i}
+            className="w-8 h-6 flex-shrink-0 border-r"
+            style={{
+              background: i % 2 === 0 ? "#C84C09" : "#B04408",
+              borderColor: "#7A2800",
+            }}
+          />
+        ))}
+      </div>
     </div>
   );
 }
 
-export function Pipe({ className = "" }: { className?: string }) {
-  return (
-    <div className={`flex flex-col items-center ${className}`}>
-      <div className="w-16 h-6 bg-green-600 border-2 border-green-800 rounded-t-sm" />
-      <div className="w-12 h-16 bg-green-500 border-x-2 border-b-2 border-green-700" />
-    </div>
-  );
-}
-
+/* ===== Brick Row ===== */
 export function BrickRow({ count = 5 }: { count?: number }) {
   return (
-    <div className="flex gap-0">
+    <div className="flex gap-0" style={{ imageRendering: "pixelated" }}>
       {Array.from({ length: count }).map((_, i) => (
         <div
           key={i}
-          className="w-10 h-10 border border-yellow-900"
+          className="w-8 h-8 md:w-10 md:h-10 border-r border-b"
           style={{
-            background:
-              "linear-gradient(to bottom, #D2691E 0%, #B8560E 100%)",
-            imageRendering: "pixelated",
+            background: i % 2 === 0 ? "#C84C09" : "#B04408",
+            borderColor: "#7A2800",
           }}
         />
       ))}
@@ -124,52 +202,61 @@ export function BrickRow({ count = 5 }: { count?: number }) {
   );
 }
 
-export function PixelCharacter() {
-  // Simple 8-bit style character (like a game character)
+/* ===== Section Divider — diamond pattern ===== */
+export function SectionDivider() {
   return (
-    <svg
-      width="48"
-      height="64"
-      viewBox="0 0 48 64"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      style={{ imageRendering: "pixelated" }}
-    >
-      {/* Hat */}
-      <rect x="12" y="0" width="24" height="8" fill="#E63946" />
-      <rect x="8" y="8" width="32" height="8" fill="#E63946" />
-      {/* Face */}
-      <rect x="8" y="16" width="32" height="8" fill="#FFD4A0" />
-      <rect x="12" y="16" width="4" height="4" fill="#333" /> {/* Eye L */}
-      <rect x="28" y="16" width="4" height="4" fill="#333" /> {/* Eye R */}
-      <rect x="16" y="24" width="16" height="4" fill="#FFD4A0" />
-      {/* Body */}
-      <rect x="8" y="28" width="32" height="8" fill="#5B8DEE" />
-      <rect x="12" y="28" width="8" height="8" fill="#FFD700" /> {/* Belt */}
-      <rect x="4" y="36" width="40" height="8" fill="#5B8DEE" />
-      {/* Arms */}
-      <rect x="0" y="32" width="8" height="12" fill="#FFD4A0" />
-      <rect x="40" y="32" width="8" height="12" fill="#FFD4A0" />
-      {/* Legs */}
-      <rect x="8" y="44" width="12" height="12" fill="#333" />
-      <rect x="28" y="44" width="12" height="12" fill="#333" />
-      {/* Shoes */}
-      <rect x="4" y="56" width="16" height="8" fill="#8B4513" />
-      <rect x="28" y="56" width="16" height="8" fill="#8B4513" />
+    <div className="w-full flex justify-center py-3">
+      <div className="flex items-center gap-1.5">
+        <PixelStar />
+        <div className="w-3 h-3 bg-primary rotate-45" />
+        <Coin size={18} />
+        <div className="w-3 h-3 bg-secondary rotate-45" />
+        <PixelStar />
+      </div>
+    </div>
+  );
+}
+
+/* ===== Game Controller Icon ===== */
+export function GameController() {
+  return (
+    <svg width="32" height="24" viewBox="0 0 16 12" xmlns="http://www.w3.org/2000/svg" style={{ imageRendering: "pixelated" }}>
+      <rect x="2" y="2" width="12" height="8" rx="0" fill="#555" />
+      <rect x="0" y="4" width="2" height="4" fill="#555" />
+      <rect x="14" y="4" width="2" height="4" fill="#555" />
+      {/* d-pad */}
+      <rect x="3" y="5" width="3" height="1" fill="#333" />
+      <rect x="4" y="4" width="1" height="3" fill="#333" />
+      {/* buttons */}
+      <rect x="10" y="4" width="2" height="1" fill="#E63946" />
+      <rect x="12" y="5" width="2" height="1" fill="#5B8DEE" />
     </svg>
   );
 }
 
-export function SectionDivider() {
+/* ===== Pixel Character ===== */
+export function PixelCharacter() {
   return (
-    <div className="w-full flex justify-center py-4">
-      <div className="flex items-center gap-2">
-        <div className="w-3 h-3 bg-accent rotate-45" />
-        <div className="w-4 h-4 bg-primary rotate-45" />
-        <div className="w-3 h-3 bg-accent rotate-45" />
-        <div className="w-4 h-4 bg-secondary rotate-45" />
-        <div className="w-3 h-3 bg-accent rotate-45" />
-      </div>
-    </div>
+    <svg width="48" height="64" viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg" style={{ imageRendering: "pixelated" }}>
+      {/* hat */}
+      <rect x="3" y="0" width="6" height="2" fill="#E63946" />
+      <rect x="2" y="2" width="8" height="1" fill="#E63946" />
+      {/* face */}
+      <rect x="2" y="3" width="8" height="3" fill="#FFD4A0" />
+      <rect x="3" y="4" width="2" height="1" fill="#333" />
+      <rect x="7" y="4" width="2" height="1" fill="#333" />
+      {/* body */}
+      <rect x="2" y="6" width="8" height="3" fill="#5B8DEE" />
+      <rect x="4" y="7" width="2" height="1" fill="#FFD700" />
+      {/* arms */}
+      <rect x="0" y="7" width="2" height="2" fill="#FFD4A0" />
+      <rect x="10" y="7" width="2" height="2" fill="#FFD4A0" />
+      {/* legs */}
+      <rect x="2" y="9" width="3" height="3" fill="#333" />
+      <rect x="7" y="9" width="3" height="3" fill="#333" />
+      {/* shoes */}
+      <rect x="1" y="12" width="4" height="2" fill="#8B4513" />
+      <rect x="7" y="12" width="4" height="2" fill="#8B4513" />
+    </svg>
   );
 }

@@ -1,102 +1,99 @@
-import { PixelCloud, PixelMountain, GroundBlocks, Pipe, PixelCharacter } from "./PixelArt";
+import { PixelCloud, PixelMountain, GroundRow, Pipe, QuestionBlock, PixelCharacter, PixelStar } from "./PixelArt";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#6EC6FF] via-secondary to-[#4A7FD8]">
-      {/* Clouds */}
-      <div
-        className="absolute top-[4%] left-[3%] md:left-[5%]"
-        style={{ animation: "cloud-float 6s ease-in-out infinite" }}
-      >
-        <PixelCloud />
+    <section className="relative overflow-hidden">
+      {/* ===== SKY BACKGROUND ===== */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#5C94FC] via-[#6CACFE] to-[#92C8FF]" />
+
+      {/* ===== CLOUDS ===== */}
+      <div className="absolute top-[5%] left-[4%]" style={{ animation: "cloud-float 7s ease-in-out infinite" }}>
+        <PixelCloud className="scale-100 md:scale-125" />
       </div>
-      <div
-        className="absolute top-[6%] right-[5%] md:right-[8%]"
-        style={{ animation: "cloud-float-slow 8s ease-in-out infinite" }}
-      >
+      <div className="absolute top-[8%] right-[6%]" style={{ animation: "cloud-float-slow 9s ease-in-out infinite" }}>
+        <PixelCloud className="scale-75 md:scale-100" />
+      </div>
+      <div className="absolute top-[18%] left-[45%]" style={{ animation: "cloud-float 8s ease-in-out infinite", animationDelay: "2s" }}>
         <PixelCloud className="scale-60 md:scale-75" />
       </div>
-      <div
-        className="absolute top-[14%] left-[50%] md:left-[55%]"
-        style={{ animation: "cloud-float 7s ease-in-out infinite" }}
-      >
-        <PixelCloud className="scale-40 md:scale-50" />
+
+      {/* ===== MOUNTAINS ===== */}
+      <div className="absolute bottom-[56px] md:bottom-[76px] left-[-30px]">
+        <PixelMountain variant="large" />
       </div>
-      <div
-        className="absolute top-[3%] left-[35%] hidden md:block"
-        style={{ animation: "cloud-float-slow 9s ease-in-out infinite" }}
-      >
-        <PixelCloud className="scale-90" />
+      <div className="absolute bottom-[56px] md:bottom-[76px] right-[-10px]">
+        <PixelMountain variant="small" />
+      </div>
+      <div className="absolute bottom-[56px] md:bottom-[76px] left-[50%] translate-x-[-50%] hidden md:block">
+        <PixelMountain variant="small" />
       </div>
 
-      {/* Mountains - responsive sizing */}
-      <div className="absolute bottom-[60px] md:bottom-[80px] left-[-30px] md:left-[-20px]">
-        <PixelMountain className="scale-75 md:scale-110" />
+      {/* ===== QUESTION BLOCKS ===== */}
+      <div className="absolute bottom-[110px] md:bottom-[150px] left-[10%]">
+        <QuestionBlock size={32} />
       </div>
-      <div className="absolute bottom-[60px] md:bottom-[80px] right-[-40px] md:right-[-30px]">
-        <PixelMountain className="scale-x-[-1] scale-60 md:scale-90" />
+      <div className="absolute bottom-[130px] md:bottom-[170px] left-[25%]" style={{ animationDelay: "0.5s" }}>
+        <QuestionBlock size={32} />
       </div>
-      <div className="absolute bottom-[80px] left-[35%] hidden md:block">
-        <PixelMountain className="scale-60 opacity-50" />
+      <div className="absolute bottom-[110px] md:bottom-[150px] right-[12%] hidden md:block">
+        <QuestionBlock size={32} />
       </div>
 
-      {/* Pipes */}
-      <div className="absolute bottom-[30px] md:bottom-[40px] right-[5%] md:right-[8%] scale-75 md:scale-100">
-        <Pipe />
-      </div>
-      <div className="absolute bottom-[40px] left-[8%] hidden md:block">
+      {/* ===== PIPE ===== */}
+      <div className="absolute bottom-[56px] md:bottom-[76px] right-[10%] md:right-[15%]">
         <Pipe />
       </div>
 
-      {/* Pixel character */}
-      <div className="absolute bottom-[30px] left-[5%] md:bottom-[40px] md:left-[20%] scale-75 md:scale-100">
+      {/* ===== CHARACTER ===== */}
+      <div className="absolute bottom-[56px] md:bottom-[76px] left-[12%] md:left-[18%]">
         <PixelCharacter />
       </div>
 
-      {/* Ground */}
-      <div className="absolute bottom-0 left-0 right-0 overflow-hidden">
-        <GroundBlocks />
+      {/* ===== STARS ===== */}
+      <div className="absolute top-[30%] right-[20%]"><PixelStar /></div>
+      <div className="absolute top-[15%] left-[25%]" style={{ animationDelay: "0.7s" }}><PixelStar /></div>
+
+      {/* ===== GROUND ===== */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <GroundRow />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center px-4 pt-8 md:pt-12 pb-24 md:pb-32 text-center">
-        {/* Main title */}
-        <div className="mb-3 md:mb-4">
-          <h1 className="font-dot drop-shadow-[3px_3px_0px_rgba(0,0,0,0.5)] md:drop-shadow-[4px_4px_0px_rgba(0,0,0,0.5)]">
-            <span className="block text-white text-[2.5rem] md:text-7xl lg:text-8xl tracking-wider leading-tight">
-              ピコピコ
-            </span>
-            <span className="block text-white text-[2rem] md:text-6xl lg:text-7xl tracking-wider leading-tight">
-              イングリッシュ
-            </span>
-          </h1>
-        </div>
+      {/* ===== CONTENT ===== */}
+      <div className="relative z-10 flex flex-col items-center px-4 pt-8 md:pt-14 pb-[140px] md:pb-[200px] text-center">
+        {/* Title: ピコピコ / イングリッシュ — stacked, red */}
+        <h1 className="font-dot leading-none">
+          <span className="block text-primary text-[3rem] md:text-[5rem] lg:text-[6rem] tracking-wider"
+            style={{ textShadow: "3px 3px 0 #000, -1px -1px 0 #000" }}>
+            ピコピコ
+          </span>
+          <span className="block text-primary text-[2.2rem] md:text-[3.5rem] lg:text-[4.2rem] tracking-wider"
+            style={{ textShadow: "3px 3px 0 #000, -1px -1px 0 #000" }}>
+            イングリッシュ
+          </span>
+        </h1>
 
-        {/* Game x English - large and prominent */}
-        <div className="mt-3 md:mt-4 font-dot flex flex-wrap items-end justify-center gap-1">
-          <span
-            className="text-primary text-5xl md:text-8xl font-bold drop-shadow-[3px_3px_0px_rgba(0,0,0,0.3)] leading-none"
-            style={{ WebkitTextStroke: "1px #b02030" }}
-          >
+        {/* ゲーム で 英会話 — stacked vertically */}
+        <div className="mt-4 md:mt-6 font-dot leading-none flex flex-col items-center">
+          <span className="text-accent text-[3.5rem] md:text-[5.5rem] lg:text-[7rem] font-bold"
+            style={{ textShadow: "4px 4px 0 #000, -1px -1px 0 #000" }}>
             ゲーム
           </span>
-          <span className="text-white text-2xl md:text-5xl mb-1 md:mb-2">で</span>
-          <span className="text-accent text-5xl md:text-8xl font-bold drop-shadow-[3px_3px_0px_rgba(0,0,0,0.3)] leading-none">
+          <span className="text-white text-[2rem] md:text-[3rem] my-0"
+            style={{ textShadow: "2px 2px 0 #000" }}>
+            で
+          </span>
+          <span className="text-white text-[3rem] md:text-[5rem] lg:text-[6rem] font-bold"
+            style={{ textShadow: "4px 4px 0 #000, -1px -1px 0 #000" }}>
             英会話
           </span>
         </div>
 
-        {/* ABC decoration */}
-        <div className="font-dot text-white text-xl md:text-2xl tracking-[0.5em] mt-1 md:mt-2 opacity-70">
-          A B C
-        </div>
-
         {/* White info box */}
-        <div className="mt-5 md:mt-6 w-full max-w-[340px] md:max-w-sm mx-auto bg-white rounded-lg p-4 md:p-5 pixel-border-light shadow-xl">
+        <div className="mt-5 md:mt-8 w-full max-w-[340px] md:max-w-md mx-auto bg-white/95 p-4 md:p-5 pixel-border shadow-2xl">
           <p className="text-gray-800 font-body text-xs md:text-sm leading-relaxed">
             「<span className="font-bold text-primary">楽しく自然と英語が身につく</span>」をモットーに
           </p>
-          <div className="my-2 md:my-3 flex items-center justify-center gap-2 font-dot text-lg md:text-xl">
+          <div className="my-2 md:my-3 flex items-center justify-center gap-2 font-dot text-lg md:text-2xl">
             <span className="text-primary font-bold">ゲーム</span>
             <span className="text-gray-600">×</span>
             <span className="text-secondary font-bold">英会話</span>
@@ -106,29 +103,31 @@ export default function Hero() {
           </p>
         </div>
 
-        {/* Online connection text */}
-        <div className="mt-5 md:mt-6 w-full max-w-[340px] md:max-w-sm mx-auto font-body text-white text-xs md:text-sm leading-loose">
+        {/* Online text */}
+        <div className="mt-4 md:mt-6 w-full max-w-[340px] md:max-w-md mx-auto font-body text-white text-xs md:text-sm leading-loose">
           <p>
             有名英会話講師と
-            <span className="font-dot text-accent text-base md:text-xl font-bold bg-black/20 px-1.5 md:px-2 py-0.5 rounded">
+            <span className="font-dot text-accent text-base md:text-xl font-bold bg-black/30 px-1.5 py-0.5 rounded mx-0.5">
               オンライン
             </span>
             で繋がりながら、
           </p>
-          <p className="mt-1 md:mt-2">
-            <span className="font-dot text-base md:text-xl font-bold text-primary bg-white/20 px-1.5 md:px-2 py-0.5 rounded">
+          <p className="mt-1">
+            <span className="font-dot text-base md:text-xl font-bold text-accent bg-black/30 px-1.5 py-0.5 rounded">
               ゲームを英語
             </span>
-            で一緒にプレイしていきます。
+            <span className="ml-0.5">で一緒にプレイしていきます。</span>
           </p>
         </div>
 
-        {/* PIKO PIKO ENGLISH logo */}
-        <div className="mt-6 md:mt-8 font-dot">
-          <div className="text-accent text-3xl md:text-6xl tracking-[0.3em] md:tracking-[0.4em] drop-shadow-[2px_2px_0px_rgba(0,0,0,0.6)] md:drop-shadow-[3px_3px_0px_rgba(0,0,0,0.6)] leading-tight">
+        {/* PIKO PIKO ENGLISH */}
+        <div className="mt-6 md:mt-8 font-dot leading-tight">
+          <div className="text-accent text-3xl md:text-5xl tracking-[0.3em]"
+            style={{ textShadow: "3px 3px 0 #000" }}>
             PIKO PIKO
           </div>
-          <div className="text-white text-2xl md:text-5xl tracking-[0.3em] md:tracking-[0.4em] drop-shadow-[2px_2px_0px_rgba(0,0,0,0.6)] md:drop-shadow-[3px_3px_0px_rgba(0,0,0,0.6)]">
+          <div className="text-white text-2xl md:text-4xl tracking-[0.3em]"
+            style={{ textShadow: "3px 3px 0 #000" }}>
             ENGLISH
           </div>
         </div>

@@ -1,26 +1,30 @@
 import FadeInSection from "./FadeInSection";
-import { QuestionBlock, BrickRow } from "./PixelArt";
+import { QuestionBlock, BrickRow, PixelStar } from "./PixelArt";
 
 export default function Description() {
   return (
-    <section className="bg-dark-navy py-10 md:py-12 px-4 relative">
+    <section className="bg-dark-navy py-10 md:py-14 px-4 relative">
+      {/* Decorative stars */}
+      <div className="absolute top-6 left-6"><PixelStar /></div>
+      <div className="absolute top-10 right-8" style={{ animationDelay: "0.5s" }}><PixelStar /></div>
+
       <FadeInSection>
         <div className="max-w-lg mx-auto">
-          {/* Decorative bricks on top */}
-          <div className="flex justify-center mb-5 md:mb-6 overflow-hidden">
-            <BrickRow count={8} />
+          {/* Bricks */}
+          <div className="flex justify-center mb-5 overflow-hidden">
+            <BrickRow count={10} />
           </div>
 
           {/* Question blocks */}
-          <div className="flex justify-center gap-3 mb-5 md:mb-6">
-            <QuestionBlock />
-            <QuestionBlock />
-            <QuestionBlock />
+          <div className="flex justify-center gap-2 mb-5">
+            <QuestionBlock size={36} />
+            <QuestionBlock size={36} />
+            <QuestionBlock size={36} />
           </div>
 
-          {/* RPG-style message box */}
+          {/* RPG box */}
           <div className="rpg-box relative">
-            <p className="font-body text-xs md:text-sm leading-[2] text-white">
+            <p className="font-body text-xs md:text-sm leading-[2.2] text-white">
               ゲームプレイを通じて、
               <br />
               自然と簡単なフレーズや言い回しを身につけていきます。
@@ -33,16 +37,13 @@ export default function Description() {
               <br />
               そんな学びを提供します。
             </p>
-            {/* Blinking cursor like RPG */}
-            <span className="inline-block w-2.5 h-2.5 md:w-3 md:h-3 bg-white mt-2 blink-cursor" />
+            <span className="inline-block w-2.5 h-2.5 bg-white mt-2 blink-cursor" />
           </div>
 
-          {/* Course label at bottom right, like the screenshot */}
-          <div className="flex justify-end mt-5 md:mt-6">
-            <a href="#courses" className="pixel-btn bg-primary text-white font-dot text-base md:text-lg px-5 md:px-6 py-2.5 md:py-3 no-underline">
-              コース
-              <br />
-              <span className="text-accent">値段</span>
+          {/* "コース・値段" link button */}
+          <div className="flex justify-end mt-5">
+            <a href="#courses" className="pixel-btn bg-primary text-white font-dot text-base px-5 py-2.5 no-underline text-center leading-relaxed">
+              コース<br /><span className="text-accent">値段</span>
             </a>
           </div>
         </div>
