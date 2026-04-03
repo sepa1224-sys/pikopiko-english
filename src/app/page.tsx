@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import HeroInfo from "@/components/HeroInfo";
 import Description from "@/components/Description";
 import Courses from "@/components/Courses";
 import Trial from "@/components/Trial";
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <HeroInfo />
       <Description />
       <Courses />
       <Trial />

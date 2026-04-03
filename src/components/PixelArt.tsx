@@ -1,13 +1,105 @@
-/* ===== Pixel Cloud — Mario-style ===== */
-export function PixelCloud({ className = "" }: { className?: string }) {
+/* ===== Pixel Cloud — large, white + lavender like original ===== */
+export function PixelCloud({ className = "", size = "md" }: { className?: string; size?: "sm" | "md" | "lg" }) {
+  const w = size === "lg" ? 192 : size === "md" ? 128 : 80;
+  const h = size === "lg" ? 80 : size === "md" ? 56 : 36;
   return (
-    <svg className={className} width="96" height="48" viewBox="0 0 12 6" xmlns="http://www.w3.org/2000/svg" style={{ imageRendering: "pixelated" }}>
-      <rect x="3" y="0" width="6" height="1" fill="#fff" />
-      <rect x="1" y="1" width="10" height="1" fill="#fff" />
-      <rect x="0" y="2" width="12" height="1" fill="#fff" />
-      <rect x="0" y="3" width="12" height="1" fill="#f4f4f4" />
-      <rect x="1" y="4" width="10" height="1" fill="#e8e8e8" />
-      <rect x="3" y="5" width="6" height="1" fill="#e0e0e0" />
+    <svg className={className} width={w} height={h} viewBox="0 0 24 10" xmlns="http://www.w3.org/2000/svg" style={{ imageRendering: "pixelated" }}>
+      {/* Main body - white */}
+      <rect x="4" y="2" width="4" height="1" fill="#fff" />
+      <rect x="14" y="1" width="4" height="1" fill="#fff" />
+      <rect x="2" y="3" width="8" height="1" fill="#fff" />
+      <rect x="12" y="2" width="8" height="1" fill="#fff" />
+      <rect x="1" y="4" width="22" height="1" fill="#fff" />
+      <rect x="0" y="5" width="24" height="1" fill="#fff" />
+      {/* Soft lavender shadow */}
+      <rect x="0" y="6" width="24" height="1" fill="#E8E0F0" />
+      <rect x="1" y="7" width="22" height="1" fill="#D8D0E8" />
+      <rect x="3" y="8" width="18" height="1" fill="#C8C0D8" />
+      <rect x="6" y="9" width="12" height="1" fill="#B8B0C8" />
+    </svg>
+  );
+}
+
+/* ===== Pixel Bird — orange/pink, flapping ===== */
+export function PixelBird({ className = "" }: { className?: string }) {
+  return (
+    <svg className={className} width="80" height="64" viewBox="0 0 20 16" xmlns="http://www.w3.org/2000/svg" style={{ imageRendering: "pixelated" }}>
+      {/* Wing up */}
+      <rect x="2" y="0" width="2" height="2" fill="#E8A07A" />
+      <rect x="0" y="2" width="2" height="2" fill="#E8A07A" />
+      <rect x="4" y="2" width="2" height="2" fill="#E8A07A" />
+      {/* Body */}
+      <rect x="6" y="4" width="8" height="6" fill="#E8907A" />
+      <rect x="4" y="6" width="2" height="4" fill="#E8907A" />
+      <rect x="14" y="4" width="2" height="4" fill="#E8907A" />
+      {/* Head */}
+      <rect x="14" y="2" width="4" height="4" fill="#E8A07A" />
+      {/* Eye */}
+      <rect x="16" y="3" width="1" height="1" fill="#333" />
+      {/* Beak */}
+      <rect x="18" y="4" width="2" height="2" fill="#FFD700" />
+      {/* Belly */}
+      <rect x="8" y="8" width="4" height="2" fill="#FFC8B0" />
+      {/* Tail */}
+      <rect x="2" y="6" width="2" height="2" fill="#D07060" />
+      <rect x="0" y="5" width="2" height="2" fill="#D07060" />
+      {/* Feet */}
+      <rect x="8" y="12" width="2" height="2" fill="#FFD700" />
+      <rect x="12" y="12" width="2" height="2" fill="#FFD700" />
+      <rect x="6" y="14" width="2" height="2" fill="#FFD700" />
+      <rect x="14" y="14" width="2" height="2" fill="#FFD700" />
+    </svg>
+  );
+}
+
+/* ===== Pixel Vine — green trailing vine ===== */
+export function PixelVine({ className = "" }: { className?: string }) {
+  return (
+    <svg className={className} width="32" height="160" viewBox="0 0 8 40" xmlns="http://www.w3.org/2000/svg" style={{ imageRendering: "pixelated" }}>
+      {/* Stem */}
+      <rect x="3" y="0" width="2" height="40" fill="#4A7A20" />
+      {/* Leaves left */}
+      <rect x="0" y="4" width="3" height="2" fill="#6BC030" />
+      <rect x="0" y="3" width="2" height="1" fill="#6BC030" />
+      <rect x="0" y="12" width="3" height="2" fill="#5AAE28" />
+      <rect x="0" y="11" width="2" height="1" fill="#5AAE28" />
+      <rect x="0" y="22" width="3" height="2" fill="#6BC030" />
+      <rect x="0" y="21" width="2" height="1" fill="#6BC030" />
+      <rect x="0" y="32" width="3" height="2" fill="#5AAE28" />
+      <rect x="0" y="31" width="2" height="1" fill="#5AAE28" />
+      {/* Leaves right */}
+      <rect x="5" y="8" width="3" height="2" fill="#6BC030" />
+      <rect x="6" y="7" width="2" height="1" fill="#6BC030" />
+      <rect x="5" y="17" width="3" height="2" fill="#5AAE28" />
+      <rect x="6" y="16" width="2" height="1" fill="#5AAE28" />
+      <rect x="5" y="27" width="3" height="2" fill="#6BC030" />
+      <rect x="6" y="26" width="2" height="1" fill="#6BC030" />
+      <rect x="5" y="36" width="3" height="2" fill="#5AAE28" />
+      <rect x="6" y="35" width="2" height="1" fill="#5AAE28" />
+    </svg>
+  );
+}
+
+/* ===== Pixel Balloon — magenta/pink ===== */
+export function PixelBalloon({ className = "" }: { className?: string }) {
+  return (
+    <svg className={className} width="40" height="64" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" style={{ imageRendering: "pixelated" }}>
+      {/* Balloon body */}
+      <rect x="3" y="0" width="4" height="1" fill="#FF00FF" />
+      <rect x="2" y="1" width="6" height="1" fill="#FF00FF" />
+      <rect x="1" y="2" width="8" height="1" fill="#FF20FF" />
+      <rect x="1" y="3" width="8" height="1" fill="#FF20FF" />
+      <rect x="1" y="4" width="8" height="1" fill="#E000E0" />
+      <rect x="1" y="5" width="8" height="1" fill="#E000E0" />
+      <rect x="2" y="6" width="6" height="1" fill="#C000C0" />
+      <rect x="3" y="7" width="4" height="1" fill="#C000C0" />
+      <rect x="4" y="8" width="2" height="1" fill="#A000A0" />
+      {/* Highlight */}
+      <rect x="3" y="2" width="2" height="2" fill="#FF80FF" />
+      {/* Knot */}
+      <rect x="4" y="9" width="2" height="1" fill="#800080" />
+      {/* String */}
+      <rect x="5" y="10" width="1" height="6" fill="#333" />
     </svg>
   );
 }
