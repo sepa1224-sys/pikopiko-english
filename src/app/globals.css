@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: #E63946;
+  --color-secondary: #5B8DEE;
+  --color-accent: #FFD700;
+  --color-dark-navy: #1a1a2e;
+  --color-sky-light: #87CEEB;
+  --color-sky-mid: #5B8DEE;
+  --color-green-pixel: #4CAF50;
+  --color-brown-pixel: #8B4513;
+  --color-ground: #C4A265;
+  --font-dot: var(--font-dot-gothic);
+  --font-body: var(--font-noto-sans);
+}
+
+/* Pixel art helper */
+.pixel-border {
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.3),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.3);
+  border: 4px solid #333;
+  image-rendering: pixelated;
+}
+
+.pixel-border-light {
+  box-shadow:
+    inset -3px -3px 0px 0px rgba(0, 0, 0, 0.2),
+    inset 3px 3px 0px 0px rgba(255, 255, 255, 0.4);
+  border: 3px solid #555;
+}
+
+/* RPG message box style */
+.rpg-box {
+  background: rgba(0, 0, 50, 0.9);
+  border: 4px solid #fff;
+  box-shadow:
+    inset 0 0 0 2px #000,
+    0 0 0 2px #000;
+  border-radius: 4px;
+  padding: 1.25rem;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .rpg-box {
+    padding: 1.5rem;
+  }
+}
+
+/* Pixel button */
+.pixel-btn {
+  image-rendering: pixelated;
+  border: 4px solid #333;
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.4),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.3),
+    6px 6px 0px 0px rgba(0, 0, 0, 0.3);
+  transition: all 0.1s;
+  cursor: pointer;
+}
+
+.pixel-btn:hover {
+  filter: brightness(1.1);
+}
+
+.pixel-btn:active {
+  box-shadow:
+    inset 4px 4px 0px 0px rgba(0, 0, 0, 0.4),
+    inset -4px -4px 0px 0px rgba(255, 255, 255, 0.3);
+  transform: translate(3px, 3px);
+}
+
+/* Coin animation */
+@keyframes coin-spin {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(0.2); }
+}
+
+.coin-anim {
+  animation: coin-spin 1.5s ease-in-out infinite;
+}
+
+/* Question block bounce */
+@keyframes block-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.block-bounce {
+  animation: block-bounce 2s ease-in-out infinite;
+}
+
+/* Fade in animation for intersection observer */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Cloud float animation */
+@keyframes cloud-float {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(20px); }
+}
+
+@keyframes cloud-float-slow {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-15px); }
+}
+
+/* Star sparkle for decorations */
+@keyframes sparkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Blink cursor for RPG box */
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.blink-cursor {
+  animation: blink-cursor 0.8s step-end infinite;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body), sans-serif;
+  overflow-x: hidden;
+}
+
+/* Strikethrough for pricing */
+.price-strike {
+  text-decoration: line-through;
+  text-decoration-color: #E63946;
+  text-decoration-thickness: 3px;
+}
+
+/* Mobile-first text size adjustments */
+@media (max-width: 374px) {
+  .rpg-box p {
+    font-size: 0.75rem;
+  }
+}
