@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import FadeInSection from "./FadeInSection";
 import { SectionDivider, GroundDivider } from "./PixelArt";
 
@@ -15,37 +12,25 @@ const faqData = [
   { q: "支払い方法は何がありますか？", a: "銀行振込にて対応しております。" },
 ];
 
-function FAQItem({ q, a }: { q: string; a: string }) {
-  const [isOpen, setIsOpen] = useState(false);
-
+function FAQCard({ q, a }: { q: string; a: string }) {
   return (
-    <div className="bg-white rounded-sm overflow-hidden" style={{
-      border: "3px solid #ddd",
-      boxShadow: "3px 3px 0 rgba(0,0,0,0.1)",
+    <div className="bg-white rounded-md overflow-hidden" style={{
+      border: "3px solid #eee",
+      boxShadow: "4px 4px 0 rgba(0,0,0,0.08)",
     }}>
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full text-left py-3 px-3 md:px-4 flex items-start gap-2 md:gap-3 hover:bg-gray-50 transition-colors"
-      >
-        {/* Q badge — red circle */}
-        <span className="flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-full bg-primary text-white font-dot text-xs md:text-sm flex items-center justify-center mt-0.5">
+      {/* Question */}
+      <div className="p-3 md:p-4 flex items-start gap-2 md:gap-3">
+        <span className="flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-full bg-[#FF0000] text-white font-dot text-xs md:text-sm flex items-center justify-center mt-0.5">
           Q
         </span>
-        <span className="font-body text-gray-800 text-xs md:text-sm flex-1 mt-1">{q}</span>
-        <span className={`font-dot text-secondary text-lg md:text-xl flex-shrink-0 w-6 h-6 md:w-7 md:h-7 flex items-center justify-center transition-transform ${isOpen ? "rotate-45" : ""}`}>
-          +
+        <span className="font-body text-gray-900 text-xs md:text-sm flex-1 mt-1 font-medium">{q}</span>
+      </div>
+      {/* Answer */}
+      <div className="px-3 md:px-4 pb-3 md:pb-4 flex items-start gap-2 md:gap-3 pl-4 md:pl-5">
+        <span className="flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-full bg-secondary text-white font-dot text-xs md:text-sm flex items-center justify-center">
+          A
         </span>
-      </button>
-      <div className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}>
-        <div className="px-3 md:px-4 pb-3 pl-10 md:pl-[3rem]">
-          <div className="flex items-start gap-2 md:gap-3">
-            {/* A badge — blue circle */}
-            <span className="flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-full bg-secondary text-white font-dot text-xs md:text-sm flex items-center justify-center">
-              A
-            </span>
-            <p className="font-body text-gray-600 text-xs md:text-sm leading-relaxed mt-1">{a}</p>
-          </div>
-        </div>
+        <p className="font-body text-gray-600 text-xs md:text-sm leading-relaxed mt-1">{a}</p>
       </div>
     </div>
   );
@@ -60,13 +45,13 @@ export default function FAQ() {
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-8 md:mb-10">
               <SectionDivider />
-              <h2 className="font-dot text-3xl md:text-5xl text-primary">Q&A</h2>
+              <h2 className="font-dot text-3xl md:text-5xl text-[#FF0000]">Q&A</h2>
               <SectionDivider />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
               {faqData.map((item, i) => (
-                <FAQItem key={i} q={item.q} a={item.a} />
+                <FAQCard key={i} q={item.q} a={item.a} />
               ))}
             </div>
           </div>
