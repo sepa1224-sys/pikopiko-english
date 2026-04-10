@@ -1,6 +1,10 @@
+"use client";
+
 import { GroundDivider, Coin } from "./PixelArt";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
   return (
     <>
       <GroundDivider />
@@ -15,7 +19,7 @@ export default function Footer() {
           {/* CTA */}
           <div className="mb-6">
             <a href="#contact" className="pixel-btn inline-block bg-primary text-white font-dot text-base md:text-lg px-6 md:px-8 py-3 md:py-4 rounded-sm">
-              お問い合わせはこちら
+              {t.footer.ctaButton}
             </a>
           </div>
 
@@ -28,7 +32,7 @@ export default function Footer() {
 
           <div className="border-t border-gray-700 pt-5">
             <p className="font-body text-xs md:text-sm text-gray-500">
-              &copy; 2024 ピコピコイングリッシュ All Rights Reserved.
+              {t.footer.copyright}
             </p>
           </div>
         </div>

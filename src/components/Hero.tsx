@@ -1,6 +1,10 @@
+"use client";
+
 import { PixelCloud, PixelBird, PixelVine, PixelBalloon, PixelStar } from "./PixelArt";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Hero() {
+  const { t } = useLanguage();
   return (
     <section className="relative overflow-hidden min-h-screen" style={{ background: "#00C4FF" }}>
       {/* ===== BIRD — top left ===== */}
@@ -44,7 +48,7 @@ export default function Hero() {
           <svg className="w-16 h-16 md:w-28 md:h-28 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
             <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
           </svg>
-          <span className="text-gray-500 font-dot text-[0.6rem] md:text-sm mt-1">生徒イメージ</span>
+          <span className="text-gray-500 font-dot text-[0.6rem] md:text-sm mt-1">{t.hero.studentImage}</span>
         </div>
       </div>
 
@@ -57,7 +61,7 @@ export default function Hero() {
           <svg className="w-14 h-14 md:w-24 md:h-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
             <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
           </svg>
-          <span className="text-gray-500 font-dot text-[0.6rem] md:text-sm mt-1">講師イメージ</span>
+          <span className="text-gray-500 font-dot text-[0.6rem] md:text-sm mt-1">{t.hero.teacherImage}</span>
         </div>
       </div>
 

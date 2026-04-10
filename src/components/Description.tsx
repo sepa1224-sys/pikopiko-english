@@ -1,7 +1,12 @@
+"use client";
+
+import { Fragment } from "react";
 import FadeInSection from "./FadeInSection";
 import { QuestionBlock, Pipe, PixelMountain, PixelCloud, GroundRow, PixelStar } from "./PixelArt";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Description() {
+  const { t } = useLanguage();
   return (
     <section className="relative overflow-hidden" style={{ background: "#1a1a2e" }}>
       {/* ===== Mario stage background ===== */}
@@ -57,19 +62,19 @@ export default function Description() {
           <div className="max-w-lg mx-auto">
             <div className="rpg-box relative">
               <p className="font-body text-xs md:text-sm leading-[2.2] text-white">
-                ゲームプレイを通じて、<br />
-                自然と簡単なフレーズや言い回しを身につけていきます。<br />
-                最初は英語を話すことに抵抗があるかもしれませんが、<br />
-                ゲームを通じて楽しくやりとりしていきます。<br />
-                コツコツと積み上げた英語力は確実に力がついている、<br />
-                そんな学びを提供します。
+                {t.description.bodyLines.map((line, i) => (
+                  <Fragment key={i}>
+                    {line}
+                    {i < t.description.bodyLines.length - 1 && <br />}
+                  </Fragment>
+                ))}
               </p>
               <span className="inline-block w-2.5 h-2.5 bg-white mt-2 blink-cursor" />
             </div>
 
             <div className="flex justify-end mt-5">
               <a href="#courses" className="pixel-btn bg-primary text-white font-dot text-base px-5 py-2.5 no-underline text-center leading-relaxed">
-                コース<br /><span className="text-accent">値段</span>
+                {t.description.courseButtonLine1}<br /><span className="text-accent">{t.description.courseButtonLine2}</span>
               </a>
             </div>
           </div>

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { DotGothic16, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
+import { LanguageProvider } from "@/contexts/LanguageContext";
+import LanguageToggle from "@/components/LanguageToggle";
 
 const dotGothic = DotGothic16({
   weight: "400",
@@ -38,7 +40,12 @@ export default function RootLayout({
       lang="ja"
       className={`${dotGothic.variable} ${notoSansJP.variable}`}
     >
-      <body className="min-h-screen">{children}</body>
+      <body className="min-h-screen">
+        <LanguageProvider>
+          <LanguageToggle />
+          {children}
+        </LanguageProvider>
+      </body>
     </html>
   );
 }

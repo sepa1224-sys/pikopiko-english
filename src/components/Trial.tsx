@@ -1,7 +1,11 @@
+"use client";
+
 import FadeInSection from "./FadeInSection";
 import { GroundDivider, PixelStar } from "./PixelArt";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Trial() {
+  const { t } = useLanguage();
   return (
     <>
       <GroundDivider />
@@ -20,31 +24,34 @@ export default function Trial() {
                   border: "4px solid #222",
                   boxShadow: "inset -3px -3px 0 rgba(0,0,0,0.3), inset 3px 3px 0 rgba(255,255,255,0.3), 5px 5px 0 rgba(0,0,0,0.3)",
                 }}>
-                まずは！
+                {t.trial.ribbon}
               </div>
             </div>
 
             {/* Card */}
             <div className="bg-white pixel-border p-5 md:p-8 shadow-2xl">
               <h3 className="font-dot text-2xl md:text-3xl text-[#FF0000] mb-5 md:mb-6">
-                体験レッスン
+                {t.trial.title}
               </h3>
 
               <div className="space-y-3 md:space-y-4">
                 <div className="bg-red-50 rounded-lg p-3 md:p-4">
                   <p className="font-dot text-3xl md:text-4xl text-[#FF0000]">
-                    1,500<span className="text-base md:text-lg">円</span>
-                    <span className="text-[0.65rem] md:text-xs text-gray-500 font-body ml-1">（税込）</span>
+                    {t.trial.priceNumber}
+                    {t.trial.priceUnit && (
+                      <span className="text-base md:text-lg">{t.trial.priceUnit}</span>
+                    )}
+                    <span className="text-[0.65rem] md:text-xs text-gray-500 font-body ml-1">{t.trial.priceTax}</span>
                   </p>
                 </div>
 
                 <div className="font-body text-xs md:text-sm text-gray-800 text-left bg-gray-50 rounded-lg p-3 md:p-4">
-                  <p><span className="font-dot text-secondary">内容:</span> レッスン（45分）＋ 無料カウンセリング（15分）</p>
+                  <p><span className="font-dot text-secondary">{t.trial.contentLabel}</span> {t.trial.contentDetail}</p>
                 </div>
 
                 <div className="bg-yellow-50 rounded p-2.5 md:p-3 border-l-4 border-accent">
                   <p className="text-[0.65rem] md:text-xs text-gray-600 font-body leading-relaxed text-left">
-                    ※予約前に問い合わせから学校名、お話を元にコース内容をご提案させて頂きます。
+                    {t.trial.note}
                   </p>
                 </div>
               </div>
@@ -60,7 +67,7 @@ export default function Trial() {
                     cursor: "pointer",
                     textDecoration: "none",
                   }}>
-                  申込・お問い合わせは<br /><span className="text-2xl md:text-3xl">こちら</span>
+                  {t.trial.ctaTop}<br /><span className="text-2xl md:text-3xl">{t.trial.ctaBottom}</span>
                 </a>
               </div>
             </div>

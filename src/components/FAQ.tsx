@@ -1,16 +1,8 @@
+"use client";
+
 import FadeInSection from "./FadeInSection";
 import { SectionDivider, GroundDivider } from "./PixelArt";
-
-const faqData = [
-  { q: "用意するものは何ですか？", a: "PC・タブレット・ヘッドセット" },
-  { q: "レッスンで使うゲームのソフトはどうすればいいですか？", a: "ゲームソフトはご自身で準備をお願いしております。" },
-  { q: "英語が全くできなくても大丈夫ですか？", a: "大丈夫です。一人一人に合わせて授業を提供しますので、何歳からでもお受けしております。" },
-  { q: "レッスンはマンツーマンですか？", a: "基本的にマンツーマンレッスンとグループレッスンどちらも対応しています。" },
-  { q: "大人も対象ですか？", a: "大人も受け付けております。" },
-  { q: "ゲーム以外のレッスンはありますか？", a: "有名英会話講師とオンラインレッスンは行っております。" },
-  { q: "レッスンのキャンセルはどうすればいいですか？", a: "お問い合わせフォームよりご連絡ください。" },
-  { q: "支払い方法は何がありますか？", a: "銀行振込にて対応しております。" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 function FAQCard({ q, a }: { q: string; a: string }) {
   return (
@@ -37,6 +29,7 @@ function FAQCard({ q, a }: { q: string; a: string }) {
 }
 
 export default function FAQ() {
+  const { t } = useLanguage();
   return (
     <>
       <GroundDivider />
@@ -45,12 +38,12 @@ export default function FAQ() {
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-8 md:mb-10">
               <SectionDivider />
-              <h2 className="font-dot text-3xl md:text-5xl text-[#FF0000]">Q&A</h2>
+              <h2 className="font-dot text-3xl md:text-5xl text-[#FF0000]">{t.faq.title}</h2>
               <SectionDivider />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-              {faqData.map((item, i) => (
+              {t.faq.items.map((item, i) => (
                 <FAQCard key={i} q={item.q} a={item.a} />
               ))}
             </div>

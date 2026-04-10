@@ -1,7 +1,11 @@
+"use client";
+
 import FadeInSection from "./FadeInSection";
 import { SectionDivider, GroundDivider, PixelStar } from "./PixelArt";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Members() {
+  const { t } = useLanguage();
   return (
     <>
       <GroundDivider />
@@ -13,7 +17,7 @@ export default function Members() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8 md:mb-10">
               <SectionDivider />
-              <h2 className="font-dot text-2xl md:text-4xl text-accent">メンバー紹介</h2>
+              <h2 className="font-dot text-2xl md:text-4xl text-accent">{t.members.title}</h2>
               <SectionDivider />
             </div>
 
@@ -27,15 +31,15 @@ export default function Members() {
                     <svg className="w-14 h-14 md:w-20 md:h-20 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
                     </svg>
-                    <span className="text-gray-500 font-dot text-[0.5rem] md:text-xs">写真</span>
+                    <span className="text-gray-500 font-dot text-[0.5rem] md:text-xs">{t.members.photoPlaceholder}</span>
                   </div>
                 </div>
-                <h3 className="font-dot text-base md:text-xl text-white mb-1">坂本達輝</h3>
+                <h3 className="font-dot text-base md:text-xl text-white mb-1">{t.members.member1Name}</h3>
                 <div className="inline-block bg-secondary text-white font-dot text-[0.55rem] md:text-xs px-2 md:px-3 py-0.5 md:py-1 rounded-sm mb-2">
-                  サポートメンバー
+                  {t.members.member1Role}
                 </div>
                 <p className="font-body text-[0.6rem] md:text-xs text-gray-400 leading-relaxed">
-                  サービスの運営・サポートを担当しています。
+                  {t.members.member1Desc}
                 </p>
               </div>
 
@@ -48,15 +52,15 @@ export default function Members() {
                     <svg className="w-14 h-14 md:w-20 md:h-20 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
                     </svg>
-                    <span className="text-gray-500 font-dot text-[0.5rem] md:text-xs">写真</span>
+                    <span className="text-gray-500 font-dot text-[0.5rem] md:text-xs">{t.members.photoPlaceholder}</span>
                   </div>
                 </div>
-                <h3 className="font-dot text-base md:text-xl text-white mb-1">伊度悠希</h3>
+                <h3 className="font-dot text-base md:text-xl text-white mb-1">{t.members.member2Name}</h3>
                 <div className="inline-block bg-primary text-white font-dot text-[0.55rem] md:text-xs px-2 md:px-3 py-0.5 md:py-1 rounded-sm mb-2">
-                  サポートメンバー（講師）
+                  {t.members.member2Role}
                 </div>
                 <p className="font-body text-[0.6rem] md:text-xs text-gray-400 leading-relaxed">
-                  英会話講師として、レッスンを担当しています。
+                  {t.members.member2Desc}
                 </p>
               </div>
             </div>
