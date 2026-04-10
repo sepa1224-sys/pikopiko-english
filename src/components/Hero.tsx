@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { PixelCloud, PixelBird, PixelVine, PixelBalloon, PixelStar } from "./PixelArt";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -42,27 +43,31 @@ export default function Hero() {
       {/* ===== STUDENT PHOTO — left bottom, large ===== */}
       <div className="absolute bottom-[4%] md:bottom-[3%] left-[1%] md:left-[4%] z-20
         w-[180px] h-[180px] md:w-[280px] md:h-[280px]
-        rounded-full border-[6px] md:border-[8px] border-white bg-gray-200 overflow-hidden flex items-center justify-center"
+        rounded-full border-[6px] md:border-[8px] border-white bg-gray-200 overflow-hidden"
         style={{ boxShadow: "8px 8px 0 rgba(0,0,0,0.15)" }}>
-        <div className="flex flex-col items-center">
-          <svg className="w-16 h-16 md:w-28 md:h-28 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-          </svg>
-          <span className="text-gray-500 font-dot text-[0.6rem] md:text-sm mt-1">{t.hero.studentImage}</span>
-        </div>
+        <Image
+          src="/images/photo-student.png"
+          alt={t.hero.studentImage}
+          fill
+          sizes="(max-width: 768px) 180px, 280px"
+          className="object-cover"
+          priority
+        />
       </div>
 
       {/* ===== TEACHER PHOTO — right middle ===== */}
       <div className="absolute top-[25%] md:top-[22%] right-[1%] md:right-[4%] z-20
         w-[140px] h-[140px] md:w-[230px] md:h-[230px]
-        rounded-full border-[6px] md:border-[8px] border-white bg-gray-200 overflow-hidden flex items-center justify-center"
+        rounded-full border-[6px] md:border-[8px] border-white bg-gray-200 overflow-hidden"
         style={{ boxShadow: "8px 8px 0 rgba(0,0,0,0.15)" }}>
-        <div className="flex flex-col items-center">
-          <svg className="w-14 h-14 md:w-24 md:h-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-          </svg>
-          <span className="text-gray-500 font-dot text-[0.6rem] md:text-sm mt-1">{t.hero.teacherImage}</span>
-        </div>
+        <Image
+          src="/images/photo-teacher.png"
+          alt={t.hero.teacherImage}
+          fill
+          sizes="(max-width: 768px) 140px, 230px"
+          className="object-cover"
+          priority
+        />
       </div>
 
       {/* ===== TEXT ===== */}

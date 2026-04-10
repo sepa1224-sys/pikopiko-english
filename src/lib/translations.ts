@@ -68,7 +68,6 @@ type Dict = {
   };
   members: {
     title: string;
-    photoPlaceholder: string;
     member1Name: string;
     member1Role: string;
     member1Desc: string;
@@ -162,7 +161,6 @@ export const translations: Record<Language, Dict> = {
     },
     members: {
       title: "メンバー紹介",
-      photoPlaceholder: "写真",
       member1Name: "坂本達輝",
       member1Role: "サポートメンバー",
       member1Desc: "サービスの運営・サポートを担当しています。",
@@ -287,7 +285,6 @@ export const translations: Record<Language, Dict> = {
     },
     members: {
       title: "Our Team",
-      photoPlaceholder: "Photo",
       member1Name: "Tatsuki Sakamoto",
       member1Role: "Support Member",
       member1Desc: "Manages service operations and support.",
