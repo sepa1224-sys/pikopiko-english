@@ -2,7 +2,7 @@
 
 import { Fragment } from "react";
 import FadeInSection from "./FadeInSection";
-import { PixelCharacter, GroundRow } from "./PixelArt";
+import { PixelCharacter, GroundRow, QuestionBlock, Pipe, PixelMountain, PixelCloud, PixelStar } from "./PixelArt";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Description() {
@@ -85,9 +85,51 @@ export default function Description() {
         </FadeInSection>
       </div>
 
-      {/* Ground transition */}
+      {/* ===== Mario stage transition ===== */}
       <div className="relative">
-        <GroundRow />
+        {/* Sky area */}
+        <div className="bg-gradient-to-b from-[#5C94FC] to-[#87CEEB] pt-6 pb-20 md:pb-28 px-4 relative overflow-hidden">
+          {/* Clouds */}
+          <div className="absolute top-[8%] left-[5%]" style={{ animation: "cloud-float 7s ease-in-out infinite" }}>
+            <PixelCloud size="md" />
+          </div>
+          <div className="absolute top-[5%] right-[8%]" style={{ animation: "cloud-float-slow 9s ease-in-out infinite" }}>
+            <PixelCloud size="sm" />
+          </div>
+
+          {/* Mountains */}
+          <div className="absolute bottom-[60px] left-[-20px]">
+            <PixelMountain variant="large" />
+          </div>
+          <div className="absolute bottom-[60px] right-[-10px]">
+            <PixelMountain variant="small" />
+          </div>
+
+          {/* Question blocks */}
+          <div className="absolute bottom-[80px] left-[20%]">
+            <QuestionBlock size={32} />
+          </div>
+          <div className="absolute bottom-[100px] left-[35%]" style={{ animationDelay: "0.4s" }}>
+            <QuestionBlock size={32} />
+          </div>
+          <div className="absolute bottom-[80px] right-[20%]" style={{ animationDelay: "0.8s" }}>
+            <QuestionBlock size={32} />
+          </div>
+
+          {/* Pipe */}
+          <div className="absolute bottom-[20px] right-[12%]">
+            <Pipe />
+          </div>
+
+          {/* Stars */}
+          <div className="absolute top-[15%] left-[40%]"><PixelStar /></div>
+          <div className="absolute top-[25%] right-[25%]" style={{ animationDelay: "0.6s" }}><PixelStar /></div>
+        </div>
+
+        {/* Ground */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <GroundRow />
+        </div>
       </div>
     </section>
   );
